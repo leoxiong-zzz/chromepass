@@ -1,0 +1,17 @@
+<form onsubmit="show();">
+    <input id="user" type="email">
+    <label for="user">Username</label>
+    <br>
+    <input id="pass" type="password">
+    <label for="pass">Password</label>
+    <br>
+    <input type="submit" value="Login">
+</form>
+
+<script>
+    function show() {
+        var user = document.getElementById('user').value;
+        var pass = document.getElementById('pass').value;
+        alert('user: ' + user + '\npass: ' + pass)
+    }
+</script>

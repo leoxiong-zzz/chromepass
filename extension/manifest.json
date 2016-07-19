@@ -1,0 +1,32 @@
+{
+  "name": "Chromepass",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Send a message to a native application.",
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "scripts/lib/jquery.js",
+        "scripts/autofill.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "nativeMessaging",
+    "tabs",
+    "notifications",
+    "*://*/*"
+  ],
+  "web_accessible_resources": [
+    "scripts/autofill.js",
+    "scripts/lib/jquery.js"
+  ]
+}
