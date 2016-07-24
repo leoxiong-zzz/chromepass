@@ -1,17 +1,21 @@
 (function () {
-    $('form input[type=password]:visible').each(function () {
-        var form = $(this).closest('form')[0];
+    var pass = $('form input[type=password]:visible')[0];
+    var form = $(pass).closest('form');
+    var user = $(form).find('input[type=text], input[type=email]')[0];
 
-        var user_input = $(form).find('input[type=text], input[type=email]');
-        var pass_input = $(this);
 
-        if ($(user_input)) {
-            chrome.runtime.sendMessage('', function (message) {
-                if (message.type == 'autofill_response') {
-                    $(user_input).val(message.user).css('background-color', '#edffe3');
-                    $(pass_input).val(message.pass).css('background-color', '#edffe3');
+    if ($(user) && $(pass)) {
+        chrome.runtime.sendMessage('', {
+            from: 'content_script',
+            action: 'fill_available'
+        });
+        chrome.runtime.onMessage.addListener(function (message, sender, respond) {
+            if (message.from == 'popup') {
+                if (message.action == 'do_fill') {
+                    $(user).val(message.user).css('background-color', '#edffe3');
+                    $(pass).val(message.pass).css('background-color', '#edffe3');
                 }
-            });
-        }
-    });
+            }
+        });
+    }
 })();
