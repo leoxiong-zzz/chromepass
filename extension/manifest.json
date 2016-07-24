@@ -6,6 +6,9 @@
   "icons": {
     "128": "images/icon128.png"
   },
+  "page_action": {
+    "default_popup": "popup.html"
+  },
   "background": {
     "scripts": [
       "scripts/background.js"

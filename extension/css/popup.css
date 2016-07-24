@@ -1,0 +1,22 @@
+body {
+    width: 22em;
+}
+
+.mdl-list {
+    margin: 0;
+    padding: 8px;
+}
+
+.mdl-list__item-icon {
+    margin-right: 12px;
+}
+
+.codeblock {
+    font-family: "Inconsolata", monospace;
+    font-size: 0.8em;
+    text-transform: lowercase;
+}
+
+#button-fill .mdl-list__item-icon {
+    color: #efefef;
+}
