@@ -20,7 +20,6 @@
         "*://*/*"
       ],
       "js": [
-        "scripts/lib/jquery.js",
         "scripts/autofill.js"
       ]
     }
@@ -32,7 +31,6 @@
     "*://*/*"
   ],
   "web_accessible_resources": [
-    "scripts/autofill.js",
-    "scripts/lib/jquery.js"
+    "scripts/autofill.js"
   ]
 }
