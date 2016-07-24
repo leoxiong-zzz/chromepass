@@ -3,6 +3,9 @@
   "version": "1.0",
   "manifest_version": 2,
   "description": "Send a message to a native application.",
+  "icons": {
+    "128": "images/icon128.png"
+  },
   "background": {
     "scripts": [
       "scripts/background.js"
