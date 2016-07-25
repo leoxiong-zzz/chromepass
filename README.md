@@ -56,6 +56,10 @@ _Write this later._
 - offer to generate passwords
 - write script to install host app
 
+### Notes
+
+- on the email page for Google's login, there is a hidden password input, presumably to still allow autofill to recognize it as a login form, chromepass currently fails because it has more than 1 input type text/email, need smarter form detection
+
 ### Bugs and feature requests
 
 If there are any bugs or feature requests, feel free to submit a pull request or contact me at [hello@leoxiong.com](mailto:hello@leoxiong.com).
