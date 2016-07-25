@@ -12,7 +12,7 @@
             var user = users[0];
 
             chrome.runtime.onMessage.addListener(function (message, sender, respond) {
-                if (message.from == 'popup') {
+                if (message.from == 'background') {
                     if (message.action == 'do_fill') {
                         user.value = message.user;
                         pass.value = message.pass;
