@@ -1,7 +1,5 @@
 (function () {
-    NodeList.prototype.forEach = Array.prototype.forEach;
-
-    document.querySelectorAll('form input[type=password]').forEach(function (pass) {
+    Array.prototype.forEach.call(document.querySelectorAll('form input[type=password]'), function (pass) {
         var form = pass.closest('form');
         var users = form.querySelectorAll('input[type=text], input[type=email]');
 
