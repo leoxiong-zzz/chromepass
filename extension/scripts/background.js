@@ -19,8 +19,14 @@ chrome.runtime.onMessage.addListener(function (message, sender, respond) {
                         user: reply.user,
                         pass: reply.pass
                     });
+
+                    respond();
                 }
             });
         }
     }
+
+    // Keep the respond method after function return as we will need it after
+    // an async callback.
+    return true;
 });
