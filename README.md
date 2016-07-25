@@ -46,7 +46,15 @@ _Write this later._
 
 ### Todo / wishlist
 
-_This is currently a work in progress._
+- search and select which password to fill
+- automatically match subdomains
+- toggle option to automatically fill
+- show errors from pass/gpg
+- fill multi-page logins (like Google)
+- detect login forms loaded after page load (eg. with ajax)
+- offer to save passwords
+- offer to generate passwords
+- write script to install host app
 
 ### Bugs and feature requests
 
