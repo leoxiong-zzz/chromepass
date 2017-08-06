@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 import copy
+import importlib
 import json
 import logging
 import struct
 import subprocess
 import sys
-from collections import OrderedDict
-
 
 def send_message(msg_dict):
     message = json.dumps(msg_dict)
@@ -24,19 +23,12 @@ def read_message():
 
 
 def get_autofill(host):
-    args = ['pass', 'show', 'chromepass/{}'.format(host)]
+    global config
 
-    output = subprocess.check_output(args, stderr=subprocess.STDOUT)
-    output = output.decode()
+    module = importlib.import_module('.providers.{}'.format(config['provider'].lower()), 'chromepass')
+    provider = getattr(module, config['provider'])()
 
-    autofill_data = OrderedDict([
-        ('pass', None),
-        ('user', None)
-    ])
-    for keys, line in zip(autofill_data.keys(), output.splitlines()):
-        autofill_data[keys] = line
-
-    return autofill_data
+    return provider.get_autofill(host)
 
 
 def main():
@@ -71,6 +63,10 @@ logging.basicConfig(filename='chromepass.log',
 
 if __name__ == '__main__':
     try:
+        with open('config.json') as f:
+            config = json.loads(f.read())
+
         main()
     except Exception as e:
         logging.exception(e)
+        raise e

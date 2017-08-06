@@ -28,7 +28,7 @@ _This is currently a work in progress, check back later ☺._
     {
       "name": "com.leoxiong.chromepass",
       "description": "hi",
-      "path": "/home/leoxiong/workspace/chromepass/host/chromepass.py",
+      "path": "/home/leoxiong/workspace/chromepass/host/chromepass.sh",
       "type": "stdio",
       "allowed_origins": [
         "chrome-extension://extension id/"
